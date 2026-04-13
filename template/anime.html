@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Page</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #0f0f1a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: #111;
+        }
+
+        .anime-card {
+            background: #1c1c2b;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .anime-card:hover {
+            transform: scale(1.05);
+        }
+
+        .anime-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .anime-title {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .video-box {
+            margin-top: 20px;
+            background: #111;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">🎌 Anime World</a>
+    </div>
+</nav>
+
+<!-- VIDEO PLAYER -->
+<div class="container video-box">
+    <h3 class="text-center">Now Watching</h3>
+
+    <iframe id="animeVideo"
+        src="https://www.youtube.com/embed/1G4isv_Fylg"
+        allowfullscreen>
+    </iframe>
+
+    <p class="text-center mt-2">Click any anime below to watch</p>
+</div>
+
+<!-- ANIME LIST -->
+<div class="container">
+    <h2 class="section-title">🔥 Popular Anime</h2>
+
+    <div class="row">
+
+        <!-- Anime 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="anime-card" onclick="playVideo('https://www.youtube.com/embed/1G4isv_Fylg')">
+                <img src="https://img.youtube.com/vi/1G4isv_Fylg/maxresdefault.jpg">
+                <div class="anime-title">Naruto</div>
+            </div>
+        </div>
+
+        <!-- Anime 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="anime-card" onclick="playVideo('https://www.youtube.com/embed/dQw4w9WgXcQ')">
+                <img src="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+                <div class="anime-title">Attack on Titan</div>
+            </div>
+        </div>
+
+        <!-- Anime 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="anime-card" onclick="playVideo('https://www.youtube.com/embed/ysz5S6PUM-U')">
+                <img src="https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg">
+                <div class="anime-title">One Piece</div>
+            </div>
+        </div>
+
+        <div class="container mt-3">
+    <a href="{% url 'home' %}" class="btn btn-outline-light">
+        ⬅ Back to Home
+    </a>
+</div>
+
+    </div>
+</div>
+
+<!-- SCRIPT -->
+<script>
+    function playVideo(url) {
+        document.getElementById("animeVideo").src = url;
+    }
+</script>
+
+</body>
+</html>

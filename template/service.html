@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .service-box {
+            background: #fff;
+            width: 30%;
+            margin-bottom: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-box h3 {
+            color: #333;
+        }
+
+        .service-box p {
+            color: #666;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .service-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Our Services</h1>
+    <p>What we offer</p>
+</header>
+
+<div class="container">
+    <div class="services">
+
+        <div class="service-box">
+            <a href="{% url 'webdevelopment' %}">Web Development</a>
+            <p>We build responsive and high-performance websites tailored to your needs.</p>
+        </div>
+
+        <div class="service-box">
+           <a href="{% url 'graphicdesign' %}">Graphic Design</a>
+            <p>Creative and modern designs to make your brand stand out.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>SEO Optimization</h3>
+            <p>Improve your website ranking and visibility on search engines.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Digital Marketing</h3>
+            <p>Reach your target audience effectively with our marketing strategies.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>App Development</h3>
+            <p>Custom mobile applications for Android and iOS platforms.</p>
+        </div>
+
+        <div class="service-box">
+            <h3>Support & Maintenance</h3>
+            <p>Reliable ongoing support to keep your business running smoothly.</p>
+        </div>
+
+    </div>
+</div>
+<div 
+class="container mt-3">
+    <a href="{% url 'home' %}" class="btn btn-outline-light">
+        ⬅ Back to Home
+    </a>
+</div>
+
+<footer>
+    <p>&copy; 2026 Your Company | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

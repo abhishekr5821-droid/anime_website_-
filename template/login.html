@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Anime World</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(45deg, #0f2027, #2c5364);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .login-box {
+            width: 350px;
+            margin: 100px auto;
+            padding: 30px;
+            background: rgba(0,0,0,0.85);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .anime-btn {
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .anime-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #ff00cc;
+        }
+
+        a {
+            color: #00d4ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>🎌 Login</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button type="submit" class="anime-btn">Login</button>
+    </form>
+
+    <!-- Error Message -->
+    {% if error %}
+        <p style="color:red; margin-top:10px;">{{ error }}</p>
+    {% endif %}
+
+    <p class="mt-3">
+        Don't have an account?
+        <a href="{% url 'signup_view' %}">Sign Up</a>
+    </p>
+
+    <!-- Back Button -->
+    <div class="mt-3">
+        <a href="{% url 'home' %}" class="btn btn-outline-light">⬅ Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>
