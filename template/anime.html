@@ -108,28 +108,42 @@
         </div>
 
         <!-- Anime 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="anime-card" onclick="playVideo('https://www.youtube.com/embed/ysz5S6PUM-U')">
-                <img src="https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg">
-                <div class="anime-title">One Piece</div>
-            </div>
-        </div>
+        <{% load static %}
 
-        <div class="container mt-3">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Site</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+
+       {% load static %}
+
+<div class="col-md-4 mb-4">
+    <div class="anime-card" onclick="playVideo('{% static 'videos/solo_leveling_ep1.mp4' %}')">
+        <img src="https://img.youtube.com/vi/ysz5S6PUM-U/maxresdefault.jpg">
+        <div class="anime-title">Solo Leveling</div>
+    </div>
+</div>
+
+<!-- VIDEO PLAYER -->
+<video id="videoPlayer" controls style="width:100%; display:videos;"></video>
+
+<!-- BACK BUTTON -->
+<div class="container mt-3">
     <a href="{% url 'home' %}" class="btn btn-outline-light">
         ⬅ Back to Home
     </a>
 </div>
 
-    </div>
-</div>
-
-<!-- SCRIPT -->
 <script>
-    function playVideo(url) {
-        document.getElementById("animeVideo").src = url;
-    }
+function playVideo(videoUrl) {
+    const player = document.getElementById("videoPlayer");
+    player.src = videoUrl;
+    player.style.display = "block";
+    player.play();
+}
 </script>
-
-</body>
-</html>

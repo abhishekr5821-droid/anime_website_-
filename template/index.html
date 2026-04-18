@@ -64,12 +64,18 @@
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="signup_view">Sign Up</a></li>
+                {% if request.session.user_id %}
+    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+{% endif %}
+                
+
 
 
                 <!-- ⭐ ANIME BUTTON -->
                 <li class="nav-item">
-                    <a class="nav-link anime-btn ms-3" href="anime">
+                    <a class="nav-link anime-btn ms-3" href="/anime/">
                         Anime
                     </a>
                 </li>
@@ -77,12 +83,12 @@
             </ul>
 
             <!-- SEARCH -->
-            <form class="d-flex ms-lg-3">
-                <input class="form-control me-2" type="search" placeholder="Search anime..." name="q">
-                <button class="btn btn-outline-light" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+           <form class="d-flex ms-lg-3" action="/search" method="get">
+    <input class="form-control me-2" type="search" name="q" placeholder="Search...">
+    <button class="btn btn-outline-light" type="submit">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
         </div>
     </div>
 </nav>
