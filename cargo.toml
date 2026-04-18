@@ -1,0 +1,73 @@
+[package]
+name = "ffproject"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A Rust project for FFMax"
+license = "MIT"
+repository = "https://github.com/yourusername/ffproject"
+readme = "README.md"
+
+[dependencies]
+# Web Framework
+actix-web = "4.4"
+actix-rt = "2.9"
+tokio = { version = "1.35", features = ["full"] }
+
+# Database
+sqlx = { version = "0.7", features = ["runtime-tokio-native-tls", "postgres"] }
+postgres = "0.19"
+sqlalchemy = "1.4"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Configuration
+dotenv = "0.15"
+config = "0.13"
+
+# Error Handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Task Scheduling
+tokio-schedule = "0.3"
+
+# Image Processing
+image = "0.24"
+imageproc = "0.23"
+
+# Http Client
+reqwest = { version = "0.11", features = ["json"] }
+
+# UUID
+uuid = { version = "1.6", features = ["v4", "serde"] }
+
+# DateTime
+chrono = { version = "0.4", features = ["serde"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1.2"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+
+[[bin]]
+name = "ffproject"
+path = "src/main.rs"
+
+[lib]
+name = "ffproject"
+path = "src/lib.rs"
