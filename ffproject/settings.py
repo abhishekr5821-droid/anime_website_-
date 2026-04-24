@@ -58,7 +58,7 @@ ROOT_URLCONF = 'ffproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'template')],
+        'DIRS': [BASE_DIR / 'templates'],  # IMPORTANT
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
