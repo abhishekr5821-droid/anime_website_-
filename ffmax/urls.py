@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from ffmax import views
 
 urlpatterns = [
     path('', views.home, name='home'),
